@@ -405,9 +405,10 @@ void keyball_oled_render_ballinfo(void) {
         oled_write_P(LFSTR_OFF, false);
     }
 
+    // NOTE: scroll divはいじらないからコメントアウト
     // indicate scroll divider:
-    oled_write_P(PSTR(" \xC0\xC1"), false);
-    oled_write_char('0' + keyball_get_scroll_div(), false);
+    // oled_write_P(PSTR(" \xC0\xC1"), false);
+    // oled_write_char('0' + keyball_get_scroll_div(), false);
 #endif
 }
 
@@ -466,19 +467,20 @@ void keyball_oled_render_layerinfo(void) {
     }
     oled_write_char(' ', false);
 
-#    ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
-    oled_write_P(PSTR("\xC2\xC3"), false);
-    if (get_auto_mouse_enable()) {
-        oled_write_P(LFSTR_ON, false);
-    } else {
-        oled_write_P(LFSTR_OFF, false);
-    }
+// NOTE: auto mouseをdisableすることもないからコメントアウト
+// #    ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
+//     oled_write_P(PSTR("\xC2\xC3"), false);
+//     if (get_auto_mouse_enable()) {
+//         oled_write_P(LFSTR_ON, false);
+//     } else {
+//         oled_write_P(LFSTR_OFF, false);
+//     }
 
-    oled_write(format_4d(get_auto_mouse_timeout() / 10) + 1, false);
-    oled_write_char('0', false);
-#    else
-    oled_write_P(PSTR("\xC2\xC3\xB4\xB5 ---"), false);
-#    endif
+//     oled_write(format_4d(get_auto_mouse_timeout() / 10) + 1, false);
+//     oled_write_char('0', false);
+// #    else
+//     oled_write_P(PSTR("\xC2\xC3\xB4\xB5 ---"), false);
+// #    endif
 #endif
 }
 

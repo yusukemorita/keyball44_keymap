@@ -44,3 +44,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_TERM 180
 #define PERMISSIVE_HOLD
+
+// transmit layer state to slave side
+#define SPLIT_LAYER_STATE_ENABLE
